@@ -3,6 +3,7 @@ package com.pushkyn.hipstasimba;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import com.pushkyn.hipstasimba.core.HipstaClient;
 import com.pushkyn.hipstasimba.model.HipstaImage;
 
 import android.content.Context;
@@ -26,7 +27,8 @@ public class ImagesAsyncTask extends AsyncTask<Void, Void, List<HipstaImage>> {
 	protected List<HipstaImage> doInBackground(Void... params) {
 		Context context = mContext.get();
 		if (null != context) {
-			//
+			HipstaClient client = new HipstaClient(context);
+			return client.imagesGet("");
 		}
 		return null;
 	}
